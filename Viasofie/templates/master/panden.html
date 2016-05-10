@@ -1,0 +1,51 @@
+<html>
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="{% static 'master/css/content/panden.css' %}"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+    </script>
+    <style>
+    body {
+        background: #333;
+        color: #ddd;
+    }
+    </style>
+    {%block title%}
+        Panden
+    {% endblock %}
+</head>
+
+
+
+
+{% if alle_panden %}			<!-- Zolang ze minstens 1 pand hebben -->
+    {% for pand in alle_panden%}
+        <div class="w3-third">
+        <div class="w3-card-12 w3-margin" style="width:80%">
+            <a href="{% url 'pand_detail' pand.pk %}"><img style="width:100%" src="{{ MEDIA_URL }}{{pand.profiel_foto}}"/></a>
+            <div class="prijs">&#8364;{{pand.prijs}}</div>
+            <p></p>
+            <div class="w3-container w3-center">
+                <p>{{pand.user}}</p>
+                <hr/>
+                <p>{{pand.type}}</p>
+                <hr/>
+                <p>{{pand.status}}</p>
+                <p>{{pand.straat}}</p>
+                <p>{{pand.stad}}</p>
+            </div>
+        </div>
+            </div>
+    {% endfor %}
+{%else %}					<!-- Als ze geen pand heeft -->
+	<h3>Geen panden in database. Gelieve een pand toe te voegen </h3>
+{% endif %}
+
+
+
+
+
+</html>

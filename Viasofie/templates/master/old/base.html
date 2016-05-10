@@ -1,0 +1,187 @@
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- FONTS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+		<!--- TEMPLATES STYLESHEETS -->
+		<link href="{% static 'master/css/banner/banner.css' %}" rel="stylesheet">
+		<link href="{% static 'master/css/nav/nav.css' %}" rel="stylesheet">
+		<link href="{% static 'master/css/footer/footer-with-address-and-phones.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+		<!-- EIGEN STYLESHEETS -->
+		<link href="{% static 'master/css/base.css' %}" rel="stylesheet">
+		<link href="{% static 'master/css/content/login.css' %}" rel="stylesheet">
+
+		{%block page_style %}	{%endblock %}
+
+		<title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+	<div class="container">
+		{% if user.is_authenticated %}
+		<h4>Logged in as</h4>
+			<ul style="color:black">
+				<li>{{user}}</li>
+				<li>{{user.last_name}} {{user.first_name}}</li>
+				<li>{{user.email}}</li>
+			</ul>
+		{% else %}
+			<h2>Guest</h2>
+		{% endif %}
+
+		<div class="row">
+			<div class="col-md-12">
+				<!-- NAVBAR -->
+				<div class="row">
+
+					<!-- Dit is de slogan ruimte -->
+					<div class="col-md-2">
+						<div class="jumbotron">
+						<a href="{% url 'index' %}"><img src="{% static 'master/img/nav/logo_via-sofie.jpg' %}" class="img-responsive img-rounded">
+						</a>
+
+						</div>
+					</div>
+					<div class="col-md-10">
+						<div class="jumbotron">
+						  <h1 class="text-center">Via sofie</h1>
+						  <p class="text-center">verdergaan in vastgoed</p>
+						</div>
+					</div>
+
+					<!-- dit is de actuele navbar -->
+
+					<div class="col-md-12">
+						<div id='cssmenu'>
+							<ul>
+								<li> <a href="{% url 'index' %}">home</a></li>
+								<li> <a href="{% url 'about' %}">about</a></li>
+								<li> <a href="{% url 'contact' %}">contact</a></li>
+								<li> <a href="{% url 'advice' %}">advice</a></li>
+								{% if request.user.is_superuser %}
+									<li> <a href="{% url 'verkoper' %}">verkoper</a></li>
+								{% endif %}
+								{% if user.is_authenticated %}
+									<li> <a href="{% url 'profile' user.pk %}">Profiel</a></li>
+									<li> <a href="{% url 'logout' %}">Logout</a></li>
+								{% else %}
+									<li> <a id="login_link"href="">Login</a></li>
+								{% endif %}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<!-- FOOTER -->
+				<footer class="footer-distributed">
+
+					<div class="footer-left">
+
+						<h3>Via<span>-Sofie</span></h3>
+
+						<p class="footer-links">
+							<a href="#">Home</a>
+							·
+							<a href="#">About</a>
+							·
+							<a href="#">Faq</a>
+							·
+							<a href="#">Contact</a>
+						</p>
+
+						<p class="footer-company-name">Via Sofie &copy; 2016</p>
+					</div>
+
+					<div class="footer-center">
+
+						<div>
+							<i class="fa fa-map-marker"></i>
+							<p><span>21 jump Street</span> Somewhere, In France</p>
+						</div>
+
+						<div>
+							<i class="fa fa-phone"></i>
+							<p>+1 555 123456</p>
+						</div>
+
+						<div>
+							<i class="fa fa-envelope"></i>
+							<p><a href="#">support@company.com</a></p>
+						</div>
+					</div>
+
+					<div class="footer-right">
+
+						<p class="footer-company-about">
+							<span>Disclaimer</span>
+							Don't open the cookie jar. If you do the cookie monster will come out.
+							And no I won't help you because i warned you not to open the cookie jar.
+						</p>
+
+						<div class="footer-icons">
+
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-github"></i></a>
+
+						</div>
+
+					</div>
+
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="mainModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h4 class="modal-title">Modal Header</h4>
+		  </div>
+		  <div class="modal-body">
+			<div id = "model-body-content">
+
+			</div>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-
+				 0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+	</script>
+	<script src="{% static 'master/js/banner/jquery.sldr.js' %}"></script>
+	<script src="{% static 'master/js/banner/options.js' %}"></script>
+	<script src="{% static 'master/js/nav/script.js' %}"></script>
+	<script src="{% static 'master/js/base.js' %}"></script>
+	{%block page_scripts %}	{%endblock %}				<!-- Voor page gerichte js,.. !-->
+
+</body>

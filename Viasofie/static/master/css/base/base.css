@@ -1,0 +1,146 @@
+.navbar-default{
+    background-color: #0d3532;
+    border: 2px solid #e8e8e8;
+
+}
+.navbar-default .navbar-nav > li > a{
+    color: #e8e8e8;
+     text-transform: uppercase;
+    font-size: 100%;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #e8e8e8;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:after{
+    text-decoration: underline;
+}
+
+.navbar-brand > img{
+    position: relative;
+    bottom: 15px ;
+}
+
+.banner {
+    position: relative;
+}
+.banner > img{
+    width: 100%;
+    height: 86%;
+    border: 2px solid #e8e8e8;
+    -webkit-box-shadow: 0px 22px 22px -1px rgba(148,154,209,0.66);
+    -moz-box-shadow: 0px 22px 22px -1px rgba(148,154,209,0.66);
+    box-shadow: 0px 22px 22px -1px rgba(148,154,209,0.66);
+}
+
+
+.banner .search-box {
+    position: absolute;
+    left: 0;
+    bottom: 40%;
+}
+
+.banner .search-content{
+    padding: 1% 3%;
+    background:rgba(51, 51, 51,0.3);
+}
+
+.search-content .form-group label{
+    margin-top: 2%;
+    margin-right: 5%;
+    width: 180px;
+    padding: 10px 16px;
+    font-size: 18px;
+}
+.sofie-button-black{
+    background:rgba(18, 18, 18,0.8);
+    color: #fff;
+    border-color: #121212;
+
+}
+
+
+.sofie-button-black:hover {
+  color: #fff;
+    background:rgba(18, 18, 18,0.9);
+    border-color: #737373;
+}
+
+.sofie-button-black:focus,
+.sofie-button-black.focus {
+  color: #fff;
+    background:rgba(18, 18, 18,1);
+    border-color: #FFFFFF;
+}
+
+.gen-field{
+    padding: 0;
+    margin-top: 10px;
+}
+
+.location-field{
+    padding-left: 15px;
+}
+.location-field input{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.location-field input:active{
+}
+
+.submit-field{
+    padding-right: 15px;
+}
+.submit-field button{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+
+.search-field{
+    height: 50px;
+    font-size: 18px;
+    border-radius: 0;
+}
+
+.bootstrap-select > .btn {
+    height: 50px;
+    border-radius: 0;
+    color: #999;
+    font-size: 18px;
+    margin-left: 5%;
+}
+.bootstrap-select > .btn:hover {
+
+}
+
+.input-group-btn .dropdown-menu{
+    left: auto ;
+    right: -25%;
+}
+.input-group-btn .dropdown-menu:after {
+    left: auto;
+    right: 45% ;
+}
+.input-group-btn .dropdown-menu li{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #555;
+    white-space: nowrap;
+}
+
+.input-group-btn .dropdown-menu li:hover{
+    background: #444;
+    color: #999;
+}
+.input-group-btn button{
+    background: #fff;
+     border: 1px solid #ccc;
+
+}

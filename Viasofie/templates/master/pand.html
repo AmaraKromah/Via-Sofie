@@ -1,0 +1,86 @@
+<html>
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link href="{% static 'master/css/content/pand.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+    </script>
+
+    <style>
+    body {
+          background: #333;
+          color: #ddd;
+        }
+    </style>
+    {%block title%}
+        Pand
+    {% endblock %}
+</head>
+<body>
+    <div class="w3-half">
+        <div class="left-container">
+            <h2>Foto's</h2>
+
+            <div class="content-container">
+                <div id="map"></div>
+                <div id="fotos">
+                    {% if pand %}
+                        {% for foto in pand.fotos%}
+                                <img src="{{foto}}"/>
+                        {% endfor%}
+                    {% endif %}
+                </div>
+                <div id="streetview">Streetview</div>
+            </div>
+            <ul class="pick-container">
+                {% if pand %}
+                <li>
+                    <div class="photo-container">
+                        <label>Foto's</label>
+                        <a onclick="showPictures()"><img src="{{ MEDIA_URL }}{{pand.profiel_foto}}"/></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="photo-container">
+                        <label>Maps</label>
+                        <a onclick="showMaps()"><img src="http://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Maps-icon.png"/></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="photo-container">
+                        <label>Street view</label>
+                        <a onclick="showStreetView()"><img src="http://i.jootix.com/o/unnamed--c960665928.jpg"/></a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        <div class="w3-card-12 algemeen">
+            <p>TEST </p>
+        </div>
+        <div class="w3-card-12 financieel">
+            <p>TEST </p>
+        </div>
+        </div>
+
+     </div>
+
+        <div class="w3-half">
+            <div class="right-container">
+            {% if pand %}			<!-- Zolang het pand bestaat-->
+                <p>{{pand.type}} {{pand.status}}</p>
+                <p>{{pand.criteria}}</p>
+                <p>{{pand.eigenschappen}}</p>
+                <p>{{pand.verbruiks_type}}</p>
+                <p>Wettelijk: {{pand.wettelijk}}</p>
+                <p>Reviews : {{pand.review}}</p>
+            {%else %}					<!-- Als ze geen pand heeft -->
+                <h3>Geen pand in de database. Gelieve een pand toe te voegen </h3>
+            {% endif %}
+         </div>
+    </div>
+</body>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6dnA6ePP9Iz1TfJ13g6ds-p9YqkUnsTA&callback=initMap"></script>
+    <script src="{% static 'master/js/content/pand.js' %}"></script>
+

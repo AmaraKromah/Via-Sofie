@@ -1,0 +1,42 @@
+
+{% load staticfiles %}
+
+{%block page_style %}
+{%endblock %}
+
+{%block title%}
+    Login
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default w3-animate-opacity">
+                    <div class="panel-body">
+                        {% if error %}
+                             <p>{{error}}</p>
+                        {% endif %}
+                        {% if success %}
+                             <p>{{success}}</p>
+                        {% endif %}
+                        <p id="login-message"></p>
+                        <form id="loginForm" class="w3-container" action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% include 'master/forms/login-template.html' %}
+                            <button type="submit" class="w3-btn w3-blue-grey login-btn">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{%block page_scripts %}
+
+{%endblock %}

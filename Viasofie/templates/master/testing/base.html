@@ -1,0 +1,229 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+                <!-- CDN Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+              integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+		            <!-- FONTS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+                <!-- EXTERN CSS -->
+    <link href="{% static 'master/css/base/hover.css' %}" rel="stylesheet">
+    <link href="{% static 'master/css/footer/footer-with-address-and-phones.css' %}" rel="stylesheet">
+
+
+            <!-- EIGEN STYLESHEETS -->
+    <link href="{% static 'master/css/base/base.css' %}" rel="stylesheet">
+    <title>{% block title %}Nieuwe homepage{% endblock %}</title>
+</head>
+
+
+
+
+
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+                <nav class="navbar navbar-default ">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">
+                                <img alt="Brand" src="{% static 'master/img/base/logo2.jpg' %}" height="50" width="50">
+                            </a>
+
+                        </div>
+                        <div class="collapse navbar-collapse test" id="myNavbar">
+                            <ul id="nav" class="nav navbar-nav">
+                                <li class="hvr-underline-reveal"><a href="#">Home</a></li>
+                                <li class="hvr-underline-reveal"><a href="#">Over ons</a></li>
+                                <li class="hvr-underline-reveal"><a href="#">Contact</a></li>
+                                <li class="hvr-underline-reveal"><a href="#">Advies</a></li>
+                                <li class="hvr-underline-reveal"><a href="#">Partners</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="hvr-underline-reveal"><a href="#"><span class="glyphicon glyphicon-user"></span> Registreer verkoper</a></li>
+                                <li class="hvr-underline-reveal"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        <div class="row banner">
+            <img alt="Banner" class="img-responsive" src="{% static 'master/img/banner/banner1.jpg' %}" height="1084">
+            <div class=" col-sm-12 search-box">
+                <div class=" container search-content">
+                    <form role="form" class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <label class="btn sofie-button-black"> Te koop</label>
+                                <label class="btn sofie-button-black"> Te huur</label>
+                            </div>
+                        </div >
+
+                        <div class="form-group">
+                            <div class="col-sm-4 gen-field location-field">
+                                <input type="email" class="form-control search-field" placeholder="Plaats, gemeente, postcode">
+                            </div>
+
+                             <div class="col-sm-2 gen-field">
+                                <div class="input-group">
+                                    <input type="text" ID="min-datebox" Class="form-control search-field" placeholder="Min prijs" >
+                                    <div class="input-group-btn ">
+                                        <button type="button" class="btn search-field dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="min-prijs">
+                                            <li>500</li>
+                                            <li>1000</li>
+                                            <li>1500</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 gen-field">
+                                <div class="input-group">
+                                    <input type="text" ID="max-datebox" Class="form-control search-field" placeholder="Max prijs" >
+                                    <div class="input-group-btn ">
+                                        <button type="button" class="btn search-field dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="max-prijs">
+                                            <li>1000</li>
+                                            <li>1500</li>
+                                            <li>2000</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 gen-field">
+                                <select class="selectpicker " multiple title="Type pand" data-width="100%" >
+                                    <option>Appartement</option>
+                                    <option>Woning</option>
+                                    <option>Duplex</option>
+                                    <option>Studio</option>
+                                    <option>Kot</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2 gen-field submit-field">
+                                 <button type="submit" class="btn sofie-button-black btn-block search-field">Zoeken</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3 ">
+                                <button type="button" class="btn sofie-button-black btn-block">Uitgebreid zoeken</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% block content %}
+
+            {%  include "master/testing/baseContent.html" %}
+            {% endblock %}
+        </div>
+
+        <!-- FOOTER -->
+        <div class="row">
+
+            <footer class="footer-distributed">
+
+					<div class="footer-left">
+
+						<h3>Via<span>-Sofie</span></h3>
+
+						<p class="footer-links">
+							<a href="#">Home</a>
+							·
+							<a href="#">About</a>
+							·
+							<a href="#">Faq</a>
+							·
+							<a href="#">Contact</a>
+						</p>
+
+						<p class="footer-company-name">Via Sofie &copy; 2016</p>
+					</div>
+
+					<div class="footer-center">
+
+						<div>
+							<i class="fa fa-map-marker"></i>
+							<p><span>21 jump Street</span> Somewhere, In France</p>
+						</div>
+
+						<div>
+							<i class="fa fa-phone"></i>
+							<p>+1 555 123456</p>
+						</div>
+
+						<div>
+							<i class="fa fa-envelope"></i>
+							<p><a href="#">support@company.com</a></p>
+						</div>
+					</div>
+
+					<div class="footer-right">
+
+						<p class="footer-disclaimer">
+							<span>Disclaimer</span>
+							Don't open the cookie jar. If you do the cookie monster will come out.
+							And no I won't help you because i warned you not to open the cookie jar.
+						</p>
+
+						<div class="footer-icons">
+
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-github"></i></a>
+
+						</div>
+
+					</div>
+
+				</footer>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" ></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" > </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+
+    <!--- Eigen JS -->
+    <script src="{% static 'master/js/base/base.js' %}" > </script>
+</body>
+
+</html>

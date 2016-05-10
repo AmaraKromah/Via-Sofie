@@ -1,0 +1,236 @@
+/* top right bottom left */
+.home-content-wrapper{
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 40px;
+}
+
+.home-content-container{
+    padding-top: 34px;
+}
+
+.home-content-component h1 {
+    padding: 16px 0 21px;
+    margin-bottom: 0;
+}
+
+.pop-pand-container {
+    position: relative;
+    padding: 1% 10% 1%;
+}
+
+.pop-pand-lijst{
+    width: 100%;
+    -webkit-box-shadow: -6px 12px 12px 3px rgba(0,0,0,0.59);
+    -moz-box-shadow: -6px 12px 12px 3px rgba(0,0,0,0.59);
+    box-shadow: -6px 12px 12px 3px rgba(0,0,0,0.59);
+
+}
+.pop-pand-item{
+    font-weight: 400;
+    background: #fff;
+    position: relative;
+    text-align: left;
+}
+
+/* BEGIN  BOVENKANT VAN PAND*/
+.pop-pand-item .hero{
+    overflow: hidden;
+    padding-bottom: 67%;
+    position: relative;
+    border: 1px solid #e0e0e0;
+
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pop-pand-item .link{
+        width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.0001);
+}
+
+.pop-pand-item .images{
+    display: inline-block;
+    vertical-align: bottom;
+    overflow: hidden;
+    background-color: #efefef;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+    z-index: 0;
+}
+
+.pop-pand-item .images-container{
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.pop-pand-item .image-responsive{
+    width: auto;
+    height: 100%;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+    background-color: #efefef;
+}
+
+.pop-pand-item .label-group{
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    z-index: 2;
+    padding: 0;
+    list-style: none;
+}
+
+.pop-pand-item .label-price{
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 6px;
+    background: #4d4d4d;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+
+    border-top-right-radius: 4px;
+
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+
+    border-bottom-right-radius: 0;
+}
+
+.pop-pand-item .make-favo{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pop-pand-item .make-favo li.make-favo{
+    float: left;
+    padding: 5px;
+}
+
+.pop-pand-item .make-favo-save{
+    position: relative;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.pop-pand-item .make-favo-save .glyphicon-heart{
+    color: #fff;
+    opacity: 0.8;
+    font-size: 40px;
+    padding: 1px;
+
+}
+
+/* EINDE BOVENKANT VAN PAND */
+
+
+/* BEGIN ONDERKANT VAN PAND */
+
+.pop-pand-item .body{
+    padding: 15px;
+    margin: 0;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-top: 0;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-right-radius: 5px;
+    min-height: 92px;
+}
+
+.pop-pand-item .pand-type {        /* pand-type = type panden */
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.truncate{
+    overflow: hidden;
+    -o-text-overflow: ellipsis; /* als text te lang wordt zal hij die inkorten */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 1000px
+}
+
+.pop-pand-item .pand-type .way.sale {
+    color: #2a42bc;
+}
+.pop-pand-item .pand-type .way {           /* icoon */
+    font-size: 12px;
+    float: left;
+    margin: 1px 4px 0 0;
+}
+.pop-pand-item .pand-type .type {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.pop-pand-item .adress {
+    color: #3479ef;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.pop-pand-item .details {
+    font-size: 0;
+    line-height: 1.3;
+    margin: 4px 0 0;
+}
+
+
+.pop-pand-item .details .laatst-gepost,
+.pop-pand-item .details .bedden,
+.pop-pand-item .details .gebied {
+    font-size: 13px;
+    color: #848484;
+}
+
+.pop-pand-item .details .fa-circle {
+    margin: 0 0 0 3px;
+}
+
+.pop-pand-item .details .fa-circle:before {
+    font-size: 6px;
+    color: #c7c7c7;
+    display: inline-block;
+    vertical-align: middle;
+}

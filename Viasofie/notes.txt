@@ -1,0 +1,157 @@
+
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group ">
+                            <div class="col-sm-3">
+                                <select class="selectpicker " title="Status" data-width="100%">
+                                    <option>Te koop</option>
+                                    <option>Te huur</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="selectpicker " multiple title="Wat?" data-width="100%" data-live-search="true" >
+                                    <option>Woning</option>
+                                    <option>Appartement</option>
+                                    <option>Duplex</option>
+                                    <option>Studio</option>
+                                    <option>Kot</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3"><input type="text" class="form-control" placeholder="Locatie"></div>
+                            <div class="col-sm-3"><input type="text" class="form-control" placeholder="Prijs"></div>
+                        </div>
+                        <div class="form-group">
+                            <div id="opties" class="collapse">
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Kamers"></div>
+
+                                <div class="col-sm-3"><input type="text" class="form-control" placeholder="Oppervlakte"></div>
+                                <div class="col-sm-3"><input type="text" class="form-control" placeholder="Toilet"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-info btn-center btn-opties" data-toggle="collapse" data-target="#opties">
+                                <span class="glyphicon glyphicon glyphicon-chevron-down"></span> Meer opties</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-block ">Zoeken</button>
+                        </div>
+                    </form>
+
+___________________________
+
+
+Forms in de nieuwe homepage moet nog aangepast worden:
+1. Django forms gebruiken
+2. Ik gebruik dubbele code (2 forms) dit kan beter vraag hoe...
+
+
+
+
+____________________________________________
+CONVENTIES:
+
+Class name = CamelCase
+def name = all lower case (_ - gebruiken mag)
+eenheid =    m = meter M = m² QM = M³
+
+_______________________________________
+python commando's 
+
+python manage.py runserver
+python manage.py collectstatic 
+django-admin startproject mysite
+python manage.py startapp polls
+manage.py makemigrations
+python manage.py createsuperuser
+python manage.py shell
+
+
+________________________________________________
+	<script>
+			$(document).ready(function(){
+			    $("#myButton").click(function(){
+			        location.href = "{% url "about" %}";
+			    });
+			});
+		</script>
+
+
+
+_______________________________________________________
+pip install pillow => nu kunt je ImageField gebruiken
+
+foto ophalen is Foto.objects. url
+
+het gaat om de .url om alles ophale
+
+----------------------------
+META DATA:
+verbose_name='e-mail'
+return u'%s %s' % (self.first_name, self.last_name)
+unique_together=("pand", "criteria")                => moeten u niek zijn samen bv. pand+ slaapkamer
+
+___________________________________________________________
+
+HANDIGE ANDMINPANEEL MANIPULATIE :
+ADMIN.PY (link naar alles https://docs.djangoproject.com/ja/1.9/ref/contrib/admin/)
+---------------------------------------------------
+Als je list_display in admin.py wilt aanpassen
+moet je in u model zoeits ongeveer doen:
+
+    def decade_born_in(self):
+        return self.birthday.strftime('%Y')[:3] + "0's"
+    decade_born_in.short_description = 'Birth deca
+------------------------------------------------------------
+
+    fields = ('user', 'straat_naam', 'huis_nummer', 'postcode', 'stad', 'status', 'prijs','beschrijving')
+         Zo bepaal je welke velden er ingevuld kunnen worden in uw admin pagina
+
+    fields = ('user', 'straat_naam', 'huis_nummer', ('postcode', 'stad'), 'status', 'prijs','beschrijving')
+    Velden op de zelfde rij
+
+
+      raw_id_fields = ('user',)             => als je advance wilt zoeken op de primary key
+
+    list_per_page=2     => aantal velden dat wordt getoond
+    radio_fields = {"group": admin.VERTICAL}        => u foreign keys worden als knoppen getoont
+
+    save_on_top = TRUE         => nu heb je uw save functies zowel boven als beneden
+    search_fields = ['status__naam']    => laat u toe om op de foreign key (staus) zijn naam te zoeken
+
+    Custom template options         => nuttig (bekijk documentatie => zie link)
+
+
+class PandAdmin(admin.ModelAdmin):
+    list_display=('user', 'straat_naam', 'huis_nummer', 'postcode', 'stad', 'status', 'prijs')
+    search_fields=('postcode', 'stad')
+
+
+
+
+----------------------------------------
+
+
+___________________________________________________________
+cover = models.ImageField(null=True, blank=True,
+                              height_field="height_field", width_field="width_field")
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
+
+--------------------------------------------------------------------
+BV. details:
+
+{% if  pand.pandreview_set.all %}
+
+    <p>Met volgende reviews:</p>
+        {% for pandReview in pand.pandreview_set.all %}
+            <ul>
+                    <li>  Pand {{ pandReview.pand.id }} |  Review auteur: {{pandReview.review.review_naam}} | Review: {{pandReview.review.review_text}}      </li>
+
+            </ul>
+
+        {% endfor %}
+{% else %}
+<p> pand heeft geen review<br/> voeg wat reviews toe </p>
+{% endif %}
+
+

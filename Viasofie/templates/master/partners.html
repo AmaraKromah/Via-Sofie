@@ -1,0 +1,59 @@
+{%extends "master/base.html" %}
+
+<!--  HEADER SECTIE -->
+{%block page_style %}
+{%endblock %}
+
+{%block title%}
+    Partners
+{% endblock %}
+
+
+<!--  	CONTENT  -->
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-12">
+
+		<div class="panel panel-default w3-animate-opacity">
+			<div class="panel-heading">
+		    	<h1 class="panel-title">{{title}}</h1>
+		  	</div>
+
+		  	<div class="panel-body">
+				{% if error %}
+					 <p>{{error}}</p>
+				{% endif %}
+				{% if success %}
+					 <p>{{success}}</p>
+				{% endif %}
+                <div class="w3-container w3-teal">
+                  <h2>Voeg een partner toe</h2>
+                </div>
+
+                <form class="w3-container" action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% include 'master/forms/partner-template.html' %}
+                    <button type="submit" class="w3-btn w3-blue-grey">
+                        Verzend
+                    </button>
+                </form>
+		  	</div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
+
+
+
+
+<!--- FOOTER  -->
+{%block page_scripts %}	
+{%endblock %}				
+
+
+
+

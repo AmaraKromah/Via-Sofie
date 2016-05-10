@@ -1,0 +1,32 @@
+{%extends "master/base.html" %}
+
+
+<!--  HEADER SECTIE -->
+{%block page_style %}
+{%endblock %}
+
+{%block title%}
+    Profile
+{% endblock %}
+
+
+{% block content %}
+
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% include 'master/forms/form-template.html' %}
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+{% endblock %}
+
+
+<!-- FOOTER -->
+{%block page_scripts %}
+{%endblock %}
+
